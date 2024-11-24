@@ -1,0 +1,113 @@
+/* 기본 스타일 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+header, footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #0066cc;
+  color: white;
+}
+
+main {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1, h2, h3 {
+  font-size: 1.5rem;
+}
+
+section {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 업로드 섹션 */
+#uploadForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#uploadForm input, #uploadForm select, #uploadForm textarea {
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+button {
+  background-color: #0066cc;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.tab-btn:hover {
+  background-color: #0066cc;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  margin-top: 20px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image-item {
+  position: relative;
+  width: 200px;
+}
+
+.image-item img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#image-viewer {
+  text-align: center;
+}
+
+#selectedImage {
+  max-width: 600px;
+  margin-bottom: 20px;
+}

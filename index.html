@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 작품전시관</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>나의 작품전시관</h1>
+        <p>Upload and view images with descriptions</p>
+    </header>
+
+    <main>
+        <!-- 업로드 섹션 -->
+        <section id="upload-section">
+            <h2>Upload an Image</h2>
+            <form id="uploadForm">
+                <label for="fileInput">이미지 업로드:</label>
+                <input type="file" id="fileInput" accept="image/*" required>
+                
+                <label for="categorySelect">큰 카테고리:</label>
+                <select id="categorySelect" required>
+                    <option value="" disabled selected>큰 카테고리 선택</option>
+                    <option value="puzzle">퍼즐</option>
+                    <option value="bizz">보석비즈</option>
+                    <option value="solidbodypuzzle">입체퍼즐</option>
+                    <option value="block">디폼블럭</option>
+                </select>
+
+                <label for="subcategorySelect">작은 카테고리:</label>
+                <select id="subcategorySelect" required>
+                    <option value="" disabled selected>작은 카테고리선택</option>
+                </select>
+
+                <label for="descriptionInput">설명추가:</label>
+                <textarea id="descriptionInput" rows="0" required></textarea>
+
+                <button type="submit">Upload</button>
+            </form>
+        </section>
+
+        <!-- 카테고리 및 탭 -->
+        <section id="tabs-section">
+            <h2>View Images</h2>
+            <div class="tabs">
+                <button class="tab-btn" data-category="puzzle">퍼즐</button>
+                <button class="tab-btn" data-category="bizz">보석비즈</button>
+                <button class="tab-btn" data-category="solidbodypuzzle">입체퍼즐</button>
+                <button class="tab-btn" data-category="block">디폼블럭</button>
+            </div>
+
+            <div class="tab-content" id="puzzle">
+                <h3>퍼즐</h3>
+                <div class="image-list"></div>
+            </div>
+            <div class="tab-content" id="bizz">
+                <h3>보석비즈</h3>
+                <div class="image-list"></div>
+            </div>
+            <div class="tab-content" id="solidbodypuzzle">
+                <h3>입체퍼즐</h3>
+                <div class="image-list"></div>
+            </div>
+            <div class="tab-content" id="block">
+                <h3>디폼블럭</h3>
+                <div class="image-list"></div>
+            </div>
+        </section>
+
+        <section id="image-viewer" style="display: none;">
+            <h2>Image Viewer</h2>
+            <img id="selectedImage" src="" alt="Selected Image" style="max-width: 100%;"/>
+            <p id="selectedDescription"></p>
+            <button id="backToGallery">Back to Gallery</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Image Gallery. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
