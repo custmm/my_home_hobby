@@ -1,16 +1,30 @@
 // DOM 요소
+const selectModePage = document.getElementById("select-mode-page");
+const galleryPage = document.getElementById("gallery-page");
+const viewModeButton = document.getElementById("viewModeButton");
+const uploadModeButton = document.getElementById("uploadModeButton");
+const viewBackButton = document.getElementById("viewBackButton");
+const uploadBackButton = document.getElementById("uploadBackButton");
+const viewSection = document.getElementById("view-section");
+const uploadSection = document.getElementById("upload-section");
 const uploadForm = document.getElementById("uploadForm");
+
+
+// 탭 및 콘텐츠 관련 DOM 요소
+const tabs = document.querySelectorAll(".tab-btn");
+const tabContents = document.querySelectorAll(".tab-content");
+
+// 업로드 관련 DOM 요소
 const fileInput = document.getElementById("fileInput");
 const categorySelect = document.getElementById("categorySelect");
 const subcategorySelect = document.getElementById("subcategorySelect");
+
 const descriptionInput = document.getElementById("descriptionInput");
 const imageListElements = document.querySelectorAll('.image-list');
 const backToGalleryBtn = document.getElementById("backToGallery");
 const imageViewer = document.getElementById("image-viewer");
 const selectedImage = document.getElementById("selectedImage");
 const selectedDescription = document.getElementById("selectedDescription");
-const tabs = document.querySelectorAll(".tab-btn");
-const tabContents = document.querySelectorAll(".tab-content");
 
 // 서브카테고리 데이터
 const subcategories = {
@@ -19,6 +33,50 @@ const subcategories = {
     solidbodypuzzle: ["나무퍼즐", "우드락퍼즐", "크리스탈퍼즐"],
     block: ["디폼블럭", "활용부분"]
 };
+
+// 첫 페이지 버튼 클릭 이벤트
+viewModeButton.addEventListener("click", () => {
+    selectModePage.style.display = "none";
+    galleryPage.style.display = "block";
+    viewSection.style.display = "block";
+    uploadSection.style.display = "none";
+});
+
+uploadModeButton.addEventListener("click", () => {
+    selectModePage.style.display = "none";
+    galleryPage.style.display = "block";
+    uploadSection.style.display = "block";
+    viewSection.style.display = "none";
+});
+
+// 감상 모드 뒤로 가기 버튼 이벤트
+viewBackButton.addEventListener("click", () => {
+    galleryPage.style.display = "none";
+    selectModePage.style.display = "flex";
+    viewSection.style.display = "none";
+});
+
+// 업로드 모드 뒤로 가기 버튼 이벤트
+uploadBackButton.addEventListener("click", () => {
+    galleryPage.style.display = "none";
+    selectModePage.style.display = "flex";
+    uploadSection.style.display = "none";
+});
+
+// 탭 클릭 이벤트
+tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        tabContents.forEach(content => {
+            content.classList.remove("active");
+            if (content.id === `${tab.dataset.category}-tab`) {
+                content.classList.add("active");
+            }
+        });
+    });
+});
 
 // 업로드 시 서브카테고리 동적 변경
 categorySelect.addEventListener("change", () => {
@@ -71,21 +129,6 @@ uploadForm.addEventListener("submit", (e) => {
         };
         reader.readAsDataURL(file);
     }
-});
-
-// 탭 클릭 시 해당 탭만 표시
-tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-        tabs.forEach(t => t.classList.remove("active"));
-        tab.classList.add("active");
-
-        tabContents.forEach(content => {
-            content.classList.remove("active");
-            if (content.id === `${tab.dataset.category}-tab`) {
-                content.classList.add("active");
-            }
-        });
-    });
 });
 
 // 뒤로가기 버튼 클릭 시 갤러리로 돌아가기
