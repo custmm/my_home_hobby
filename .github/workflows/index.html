@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 작품전시관</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* 화면 전체 높이를 차지 */
+            background-color: #f9f9f9;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            white-space: nowrap; /* 텍스트가 한 줄로 나오도록 설정 */
+            overflow: hidden; /* 넘치는 텍스트는 보이지 않도록 설정 */
+            text-overflow: ellipsis; /* 텍스트가 넘칠 경우 '...'로 표시 */
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        /* 첫 페이지 스타일 */
+        .button-container {
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            border: 5px solid #0066cc;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #f1f1f1;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 15px 30px;
+            cursor: pointer;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0066cc;
+        }
+        .mode-button {
+            background-color: #0066cc;
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        .mode-button:hover {
+            background-color: #004d99;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>모드를 선택하세요</h1>
+    <div class="button-container">
+<!-- 감상모드 버튼, preview.html로 이동 -->
+<a href="preview.html">
+    <button id="previewModeButton">감상 모드</button>
+</a>
+<!-- 업로드모드 버튼, upload.html로 이동 -->
+<a href="upload.html">
+    <button id="uploadModeButton">업로드 모드</button>
+</a>
+</div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
